@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:id="@+id/login_fragment">
 
     <EditText
         android:id="@+id/register_password"
@@ -45,8 +46,9 @@
         android:id="@+id/register"
         android:layout_width="125dp"
         android:layout_height="61dp"
-        android:layout_marginTop="68dp"
         android:layout_marginLeft="48dp"
+        android:layout_marginTop="68dp"
+        android:onClick="Register"
         android:text="@string/register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_password" />
