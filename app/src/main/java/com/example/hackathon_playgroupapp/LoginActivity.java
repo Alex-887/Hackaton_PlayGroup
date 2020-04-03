@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     public void ReturnLogin(View view){
 
 
+
         //Store the values in temporary fields
         EditText firstname = findViewById(R.id.first_name);
         EditText lastname = findViewById(R.id.last_name);
@@ -40,34 +41,41 @@ public class LoginActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.register_password);
         EditText confirmPassword = findViewById(R.id.confirm_password);
 
+        firstname.setError(null);
+        lastname.setError(null);
+        email.setError(null);
+        password.setError(null);
+        confirmPassword.setError(null);
+
+
         boolean error = false;
         View focusView = null;
 
-        if(TextUtils.isEmpty(firstname.toString())){
+        if(TextUtils.isEmpty(firstname.getText().toString())){
             firstname.setError(getString(R.string.empty));
             firstname.setText("");
             focusView = firstname;
             error = true;
         }else{
-            if(TextUtils.isEmpty(lastname.toString())){
+            if(TextUtils.isEmpty(lastname.getText().toString())){
                 lastname.setError(getString(R.string.empty));
                 lastname.setText("");
                 focusView = lastname;
                 error = true;
             }else{
-                if(TextUtils.isEmpty(email.toString())){
+                if(TextUtils.isEmpty(email.getText().toString())){
                     email.setError(getString(R.string.empty));
                     email.setText("");
                     focusView = email;
                     error = true;
                 }else {
-                    if(TextUtils.isEmpty(password.toString())){
+                    if(TextUtils.isEmpty(password.getText().toString())){
                         password.setError(getString(R.string.empty));
                         password.setText("");
                         focusView = password;
                         error = true;
                     } else {
-                        if(TextUtils.isEmpty(confirmPassword.toString())){
+                        if(TextUtils.isEmpty(confirmPassword.getText().toString())){
                             confirmPassword.setError(getString(R.string.empty));
                             confirmPassword.setText("");
                             focusView = confirmPassword;
@@ -77,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         }
+
         if(error){
             focusView.requestFocus();
         }else{
