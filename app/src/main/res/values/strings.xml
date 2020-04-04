@@ -17,4 +17,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcomeText">Welcome !</string>
     <string name="empty">Field empty</string>
+    <string name="friends">My Friends</string>
 </resources>

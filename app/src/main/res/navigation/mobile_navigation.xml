@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/mobile_navigation"
+
+    app:startDestination="@+id/nav_home">
+
+
+
+    <fragment
+        android:id="@+id/nav_myfriends"
+        android:name="com.example.hackathon_playgroupapp.ui.register.RegisterFragment"
+        android:label="salut"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_nav_about_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    
+
+</navigation>

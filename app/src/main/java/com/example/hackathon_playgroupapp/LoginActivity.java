@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.hackathon_playgroupapp.ui.home.HomeFragment;
 import com.example.hackathon_playgroupapp.ui.login.LoginFragment;
 import com.example.hackathon_playgroupapp.ui.register.RegisterFragment;
 
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             }else{
                 FragmentTransaction transaction;
                 transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.login_fragment, new RegisterFragment()).commit();
+                transaction.replace(R.id.login_fragment, new HomeFragment()).commit();
             }
 
 
@@ -68,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        //Sending credentials to server through Java Socket
+        /*Sending credentials to server through Java Socket
 
 
         Socket mySocket = null;
@@ -108,6 +109,8 @@ public class LoginActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         */
 
 
     }
