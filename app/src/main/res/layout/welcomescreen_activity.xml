@@ -7,6 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:background="#ffc1c0"
     tools:context=".WelcomeScreen">
 
 

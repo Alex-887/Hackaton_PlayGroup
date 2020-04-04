@@ -3,7 +3,6 @@ package com.example.hackathon_playgroupapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,14 +11,6 @@ import android.widget.EditText;
 import com.example.hackathon_playgroupapp.ui.home.HomeFragment;
 import com.example.hackathon_playgroupapp.ui.login.LoginFragment;
 import com.example.hackathon_playgroupapp.ui.register.RegisterFragment;
-
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
         FragmentTransaction transaction;
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.login_fragment, new RegisterFragment()).commit();
-
     }
 
     public void Login(View view) {
@@ -63,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
                 transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.login_fragment, new HomeFragment()).commit();
             }
-
 
         }
 
@@ -112,16 +101,14 @@ public class LoginActivity extends AppCompatActivity {
 
          */
 
-
     }
 
 
     public void ReturnLogin(View view){
 
-
             //Store the values in temporary fields
-            EditText firstname = findViewById(R.id.first_name);
-            EditText lastname = findViewById(R.id.last_name);
+            EditText firstname = findViewById(R.id.username);
+            EditText lastname = findViewById(R.id.phonenumber);
             EditText email = findViewById(R.id.email);
             EditText password2 = findViewById(R.id.password);
             EditText confirmPassword = findViewById(R.id.confirm_password);

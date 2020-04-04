@@ -1,5 +1,6 @@
 package com.example.hackathon_playgroupapp.ui.login;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.hackathon_playgroupapp.R;
 
@@ -30,7 +33,6 @@ public class LoginFragment extends Fragment {
             container.removeAllViews();
         }
 
-
         return inflater.inflate(R.layout.login_fragment, container, false);
     }
 
@@ -39,6 +41,21 @@ public class LoginFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         // TODO: Use the ViewModel
+        
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -10,12 +10,14 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
-    <string name="first_name">Firstname</string>
-    <string name="last_name">Lastname</string>
+    <string name="username">Username</string>
+    <string name="phone_number">Phone number</string>
     <string name="confirm_pwd">Confirm password</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcomeText">Welcome !</string>
     <string name="empty">Field empty</string>
     <string name="friends">My Friends</string>
+    <string name="aboutTheApp">About the app</string>
+    <string name="logout">Logout</string>
 </resources>

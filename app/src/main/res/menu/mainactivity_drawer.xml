@@ -8,8 +8,17 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_myfriends"
-            android:title="@string/friends" />
+        android:id="@+id/nav_myAccount"
+        android:title="@string/friends" />
+
+        <item
+            android:id="@+id/nav_aboutTheApp"
+            android:title="@string/aboutTheApp" />
+
+        <item
+        android:id="@+id/nav_logout"
+        android:title="@string/logout" />
+
     </group>
 
 
