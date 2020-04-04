@@ -2,6 +2,8 @@ package com.example.hackathon_playgroupapp.ui.home;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.hackathon_playgroupapp.PaintActivity;
 import com.example.hackathon_playgroupapp.R;
 
 public class HomeFragment extends Fragment {
@@ -28,7 +33,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View root = inflater.inflate(R.layout.home_fragment, container, false);
+        ImageButton button = root.findViewById(R.id.imageButton3);
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Activity a = getActivity();
+                Intent salut = new Intent(getActivity(), PaintActivity.class);
+                startActivity(salut);
+                a.finish();
+            }
+        });
         if (container != null) {
             container.removeAllViews();
         }
@@ -37,7 +53,7 @@ public class HomeFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return root;
     }
 
 
