@@ -1,17 +1,14 @@
 package com.example.hackathon_playgroupapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class RegisterActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class PaintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.register_fragment);
+        PaintView paintView = new PaintView(this);
+        setContentView(paintView);
     }
-
-
 }

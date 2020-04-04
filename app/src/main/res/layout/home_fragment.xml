@@ -24,6 +24,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="264dp"
         android:layout_height="236dp"
+        android:onClick="game1"
         android:src="@android:drawable/btn_star_big_on"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
