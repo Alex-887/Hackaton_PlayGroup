@@ -8,7 +8,7 @@
     android:id="@+id/login_fragment">
 
     <EditText
-        android:id="@+id/register_password"
+        android:id="@+id/password"
         android:layout_width="293dp"
         android:layout_height="67dp"
         android:layout_marginTop="33dp"
@@ -40,7 +40,7 @@
         android:layout_marginRight="48dp"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_password" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/register"
@@ -51,6 +51,6 @@
         android:onClick="Register"
         android:text="@string/register"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_password" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
