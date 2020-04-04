@@ -5,50 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/home_fragment">
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="106dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="76dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="106dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="76dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="106dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="60dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:id="@+id/home_fragment"
+    android:background="@color/rosepale">
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="106dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="264dp"
+        android:layout_height="236dp"
         android:src="@android:drawable/btn_star_big_on"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="264dp"
+        android:layout_height="236dp"
+        android:src="@android:drawable/btn_star_big_on"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

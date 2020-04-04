@@ -45,8 +45,8 @@ public class RegisterFragment extends Fragment {
 
 
         //Get the text of the EditText
-        EditText username = getView().findViewById(R.id.username);
-        EditText phoneNumber = getView().findViewById(R.id.phonenumber);
+//        EditText username = getView().findViewById(R.id.username);
+//        EditText phoneNumber = getView().findViewById(R.id.phonenumber);
         EditText email = getView().findViewById(R.id.email);
         EditText password = getView().findViewById(R.id.password);
 

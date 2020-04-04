@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hackathon_PlayGroupApp</string>
+    <string name="app_name">Your Playgroup</string>
     <string name="title_activity_layout">LayoutActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -20,4 +20,7 @@
     <string name="friends">My Friends</string>
     <string name="aboutTheApp">About the app</string>
     <string name="logout">Logout</string>
+    <string name="parent_message">Ask your parent to do this !</string>
+    <string name="last_name">Name</string>
+    <string name="first_name">First name</string>
 </resources>

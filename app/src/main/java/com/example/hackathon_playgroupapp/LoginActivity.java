@@ -107,8 +107,12 @@ public class LoginActivity extends AppCompatActivity {
     public void ReturnLogin(View view){
 
             //Store the values in temporary fields
-            EditText firstname = findViewById(R.id.username);
-            EditText lastname = findViewById(R.id.phonenumber);
+
+
+            EditText firstname = findViewById(R.id.first_name);
+            EditText lastname = findViewById(R.id.last_name);
+
+
             EditText email = findViewById(R.id.email);
             EditText password2 = findViewById(R.id.password);
             EditText confirmPassword = findViewById(R.id.confirm_password);
