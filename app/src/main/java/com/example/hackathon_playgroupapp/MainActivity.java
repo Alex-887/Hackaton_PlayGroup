@@ -59,9 +59,5 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void game1 (View view){
-        Intent loginIntent = new Intent(this, PaintActivity.class);
-        startActivity(loginIntent);
-        finish();
-    }
+
 }

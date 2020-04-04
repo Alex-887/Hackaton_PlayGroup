@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -110,6 +111,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+
+
     public void Login(View view) {
 
         EditText login = findViewById(R.id.login);
@@ -144,6 +147,9 @@ public class LoginActivity extends AppCompatActivity {
                     FragmentTransaction transaction;
                     transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.login_fragment, new HomeFragment()).commit();
+                    //Intent loginIntent1 = new Intent(LoginActivity.this, MainActivity.class);
+                    //startActivity(loginIntent1);
+
                 }else{
                     password.setError(getString(R.string.wrong));
 
@@ -195,6 +201,7 @@ public class LoginActivity extends AppCompatActivity {
          */
 
     }
+
 
     public final static boolean isValidEmail(EditText target1) {
         CharSequence target = target1.getText();
