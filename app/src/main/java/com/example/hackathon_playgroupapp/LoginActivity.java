@@ -1,5 +1,6 @@
 package com.example.hackathon_playgroupapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,21 +12,103 @@ import android.widget.EditText;
 import com.example.hackathon_playgroupapp.ui.home.HomeFragment;
 import com.example.hackathon_playgroupapp.ui.login.LoginFragment;
 import com.example.hackathon_playgroupapp.ui.register.RegisterFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
+    // Write a message to the database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_fragment);
-
+        fAuth = FirebaseAuth.getInstance();
     }
 
     public void Register(View view){
         FragmentTransaction transaction;
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.login_fragment, new RegisterFragment()).commit();
+
     }
+
+    public void createAccount(View view){
+        EditText email = findViewById(R.id.email);
+        EditText password = findViewById(R.id.register_password);
+        EditText confirmPassword = findViewById(R.id.confirm_password);
+
+
+        fAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //Store the values in temporary fields
+
+
+
+                    email.setError(null);
+                    password.setError(null);
+                    confirmPassword.setError(null);
+
+
+                    boolean error2 = false;
+                    View focusView2 = null;
+
+                    if (TextUtils.isEmpty(email.getText().toString())) {
+                        email.setError(getString(R.string.empty));
+                        focusView2 = email;
+                        error2 = true;
+
+                    } else {
+                        if (TextUtils.isEmpty(password.getText().toString())) {
+                            password.setError(getString(R.string.empty));
+                            focusView2 = password;
+                            error2 = true;
+                        } else {
+                            if (TextUtils.isEmpty(confirmPassword.getText().toString())) {
+                                confirmPassword.setError(getString(R.string.empty));
+                                focusView2 = confirmPassword;
+                                error2 = true;
+
+                            }
+                        }
+                    }
+
+                    if (error2) {
+                        focusView2.requestFocus();
+                    } else {
+                        boolean result = isValidEmail((EditText) email);
+                        boolean result2 = isValidPassword( password, confirmPassword);
+                        if (result == true && result2 == true) {
+
+                            FragmentTransaction transaction;
+                            transaction = getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.register_fragment, new LoginFragment()).commit();
+                        }
+                    }
+
+                }else{
+                    //Si register retourne false
+
+
+
+
+
+                }
+            }
+        });
+
+    }
+
 
     public void Login(View view) {
 
@@ -49,14 +132,24 @@ public class LoginActivity extends AppCompatActivity {
             if (error) {
                 focusView.requestFocus();
             }else{
-                FragmentTransaction transaction;
-                transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.login_fragment, new HomeFragment()).commit();
+
             }
 
         }
 
+        fAuth.signInWithEmailAndPassword(login.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    FragmentTransaction transaction;
+                    transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.login_fragment, new HomeFragment()).commit();
+                }else{
+                    password.setError(getString(R.string.wrong));
 
+                }
+                }
+        });
 
         /*Sending credentials to server through Java Socket
 
@@ -103,77 +196,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-    public void ReturnLogin(View view){
-
-            //Store the values in temporary fields
-
-
-            EditText firstname = findViewById(R.id.first_name);
-            EditText lastname = findViewById(R.id.last_name);
-
-
-            EditText email = findViewById(R.id.email);
-            EditText password2 = findViewById(R.id.password);
-            EditText confirmPassword = findViewById(R.id.confirm_password);
-
-            firstname.setError(null);
-            lastname.setError(null);
-            email.setError(null);
-            password2.setError(null);
-            confirmPassword.setError(null);
-
-
-            boolean error2 = false;
-            View focusView2 = null;
-
-            if (TextUtils.isEmpty(firstname.getText().toString())) {
-                firstname.setError(getString(R.string.empty));
-                focusView2 = firstname;
-                error2 = true;
-            } else {
-                if (TextUtils.isEmpty(lastname.getText().toString())) {
-                    lastname.setError(getString(R.string.empty));
-                    focusView2 = lastname;
-                    error2 = true;
-                } else {
-                    if (TextUtils.isEmpty(email.getText().toString())) {
-                        email.setError(getString(R.string.empty));
-                        focusView2 = email;
-                        error2 = true;
-
-                    } else {
-                        if (TextUtils.isEmpty(password2.getText().toString())) {
-                            password2.setError(getString(R.string.empty));
-                            focusView2 = password2;
-                            error2 = true;
-                        } else {
-                            if (TextUtils.isEmpty(confirmPassword.getText().toString())) {
-                                confirmPassword.setError(getString(R.string.empty));
-                                focusView2 = confirmPassword;
-                                error2 = true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (error2) {
-                focusView2.requestFocus();
-            } else {
-                boolean result = isValidEmail((EditText) findViewById(R.id.email));
-                boolean result2 = isValidPassword((EditText) findViewById(R.id.register_password), (EditText) findViewById(R.id.confirm_password));
-                if (result == true && result2 == true) {
-                    FragmentTransaction transaction;
-                    transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.register_fragment, new LoginFragment()).commit();
-                }
-            }
-
-
-
-
-    }
     public final static boolean isValidEmail(EditText target1) {
         CharSequence target = target1.getText();
         if (TextUtils.isEmpty(target)) {
@@ -192,4 +214,7 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         return false;
     }
+
+
+
 }

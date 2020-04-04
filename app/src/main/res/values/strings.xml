@@ -23,4 +23,5 @@
     <string name="parent_message">Ask your parent to do this !</string>
     <string name="last_name">Name</string>
     <string name="first_name">First name</string>
+    <string name="wrong">Wrong credentials ! Please try again !</string>
 </resources>
