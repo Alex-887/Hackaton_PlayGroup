@@ -67,11 +67,11 @@ public class JoinCreateRoomFragment extends Fragment {
             public void onClick(View v) {
                 //Create room and add the first player as player 1
 
-
-
                 roomName = playerName;
+                //Create data in database
                 roomRef = database.getReference("rooms/" + roomName + "/player1");
                 addRoomEventListener();
+                //Set the data in the database
                 roomRef.setValue(playerName);
             }
         });
@@ -79,9 +79,12 @@ public class JoinCreateRoomFragment extends Fragment {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Join the room of a friend with de code give in the textplain
                 roomName = code.getText().toString();
+                //Create data in database
                 roomRef = database.getReference("rooms/" + roomName + "/player2");
                 addRoomEventListener();
+                //Set the data in the database
                 roomRef.setValue(playerName);
             }
         });
@@ -89,10 +92,11 @@ public class JoinCreateRoomFragment extends Fragment {
         return root;
     }
 
+    //Method for data changes
     private void addRoomEventListener(){
 
         roomRef.addValueEventListener(new ValueEventListener() {
-
+            //If data change
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 create.setEnabled(true);
@@ -103,6 +107,7 @@ public class JoinCreateRoomFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                //If database error
                 create.setEnabled(true);
                 Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
             }

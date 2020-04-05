@@ -28,9 +28,6 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".WelcomeScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

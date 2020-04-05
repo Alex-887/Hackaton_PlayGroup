@@ -48,20 +48,26 @@ public class LoginGameFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_login_game_, container, false);
 
+
+        //Get the play button and the username textplain
                     editText = root.findViewById(R.id.username_drawinggame);
                     button = root.findViewById(R.id.play);
 
+                    //Set the database to this instance
                     database = FirebaseDatabase.getInstance();
 
                     button.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
+
                             playerName = editText.getText().toString();
                             editText.setText("");
                             if(!playerName.equals("")){
                                 button.setEnabled(false);
+                                //Create data in database
                                 playerRef = database.getReference("players/" + playerName);
                                 addEventListener();
+                                //Set the value in the database
                                 playerRef.setValue("");
                             }
 
@@ -74,12 +80,13 @@ public class LoginGameFragment extends Fragment {
         return root;
     }
 
+    //Method for data changes
     public void addEventListener(){
 
         playerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+            //If data change
                 if(!playerName.equals("")){
 
                     SharedPreferences preferences = getActivity().getSharedPreferences("PREFS", 0);
@@ -98,6 +105,7 @@ public class LoginGameFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                //If database error
                 button.setEnabled(true);
                 Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
             }
