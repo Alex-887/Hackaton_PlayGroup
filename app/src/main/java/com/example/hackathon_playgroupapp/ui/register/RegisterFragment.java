@@ -31,7 +31,9 @@ public class RegisterFragment extends Fragment {
     public static RegisterFragment newInstance() {
         return new RegisterFragment();
     }
+
     FirebaseAuth fAuth;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -45,9 +47,6 @@ public class RegisterFragment extends Fragment {
             container.removeAllViews();
         }
 
-
-
-
         return root;
 
 
@@ -59,11 +58,6 @@ public class RegisterFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         // TODO: Use the ViewModel
-
-
-        //Get the text of the EditText
-//        EditText username = getView().findViewById(R.id.username);
-//        EditText phoneNumber = getView().findViewById(R.id.phonenumber);
 
 
 

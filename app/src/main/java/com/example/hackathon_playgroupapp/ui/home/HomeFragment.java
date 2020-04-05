@@ -1,5 +1,6 @@
 package com.example.hackathon_playgroupapp.ui.home;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.Activity;
@@ -20,6 +21,8 @@ import android.widget.ImageButton;
 
 import com.example.hackathon_playgroupapp.PaintActivity;
 import com.example.hackathon_playgroupapp.R;
+import com.example.hackathon_playgroupapp.ui.drawinggame.LoginGameFragment;
+import com.example.hackathon_playgroupapp.ui.register.RegisterFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -39,12 +42,15 @@ public class HomeFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity a = getActivity();
-                Intent salut = new Intent(getActivity(), PaintActivity.class);
-                startActivity(salut);
-                a.finish();
+
+                FragmentTransaction transaction;
+                transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.home_fragment, new LoginGameFragment()).commit();
+
             }
         });
+
+
         if (container != null) {
             container.removeAllViews();
         }
